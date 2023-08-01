@@ -181,7 +181,7 @@ class OmciSerialNumberField(StrCompoundField):
 
 class OmciTableField(MultipleTypeField):
     def __init__(self, tblfld):
-        assert isinstance(tblfld, PacketField)
+        #assert isinstance(tblfld, PacketField)
         assert hasattr(tblfld.cls, 'index'), 'No index() method defined for OmciTableField row object'
         assert hasattr(tblfld.cls, 'is_delete'), 'No delete() method defined for OmciTableField row object'
         super(OmciTableField, self).__init__(

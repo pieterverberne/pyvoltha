@@ -29,7 +29,7 @@ class FixedLenField(PadField):
         super(FixedLenField, self).__init__(fld, align, padwith)
 
     def getfield(self, pkt, s):
-        remain, val = self._fld.getfield(pkt, s[:self._align])
+        remain, val = self.fld.getfield(pkt, s[:self._align])
         if isinstance(val.payload, Raw) and \
                 not val.payload.load.replace(self._padwith, b''):
             # raw payload is just padding
